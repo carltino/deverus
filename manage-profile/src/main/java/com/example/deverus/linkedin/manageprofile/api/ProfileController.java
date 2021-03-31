@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+/**
+ *
+ * @author Carlton Addison
+ *
+ */
 @RestController
 public class ProfileController {
 

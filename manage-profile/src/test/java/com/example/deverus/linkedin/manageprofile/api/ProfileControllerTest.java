@@ -8,6 +8,7 @@ package com.example.deverus.linkedin.manageprofile.api;
         import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
         import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
         import org.springframework.boot.test.context.SpringBootTest;
+        import org.springframework.security.test.context.support.WithMockUser;
         import org.springframework.test.context.junit4.SpringRunner;
         import org.junit.runner.RunWith;
 
@@ -27,7 +28,7 @@ class ProfileControllerTest extends AbstractTest {
     @Autowired
     ProfileRepo repo;
 
-
+    @WithMockUser("USER")
     @Test
     public void testGetProfile() throws Exception {
         String uri = "/profiles/1";
@@ -41,6 +42,7 @@ class ProfileControllerTest extends AbstractTest {
         assertEquals(profile.getFirstName(), "Lokesh");
     }
 
+    @WithMockUser("USER")
     @Test
     public void testAddProfile() throws Exception{
         String uri = "/profiles/add";
