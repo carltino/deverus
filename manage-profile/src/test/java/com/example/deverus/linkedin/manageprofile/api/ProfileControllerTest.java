@@ -1,26 +1,21 @@
 package com.example.deverus.linkedin.manageprofile.api;
 
-        import com.example.deverus.linkedin.manageprofile.entity.JobStatus;
-        import com.example.deverus.linkedin.manageprofile.entity.Profile;
-        import com.example.deverus.linkedin.manageprofile.repository.ProfileRepo;
-        import org.junit.jupiter.api.Test;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-        import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-        import org.springframework.boot.test.context.SpringBootTest;
-        import org.springframework.security.test.context.support.WithMockUser;
-        import org.springframework.test.context.junit4.SpringRunner;
-        import org.junit.runner.RunWith;
+import com.example.deverus.linkedin.manageprofile.entity.JobStatus;
+import com.example.deverus.linkedin.manageprofile.entity.Profile;
+import com.example.deverus.linkedin.manageprofile.repository.ProfileRepo;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-        import java.util.List;
-        import java.util.Optional;
+import java.util.List;
 
-        import org.springframework.http.MediaType;
-        import org.springframework.test.web.servlet.MvcResult;
-        import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
-        import static org.junit.jupiter.api.Assertions.*;
-        import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @RunWith(SpringRunner.class)
 class ProfileControllerTest extends AbstractTest {
@@ -44,7 +39,7 @@ class ProfileControllerTest extends AbstractTest {
 
     @WithMockUser("USER")
     @Test
-    public void testAddProfile() throws Exception{
+    public void testAddProfile() throws Exception {
         String uri = "/profiles/add";
         Profile aNewGuy = new Profile();
         aNewGuy.setFirstName("Carl");
