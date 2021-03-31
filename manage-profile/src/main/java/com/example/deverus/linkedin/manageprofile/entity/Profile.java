@@ -8,12 +8,15 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Enumerated;
 import javax.persistence.EnumType;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name="profiles")
 @Validated
-public class Profile {
+public class Profile implements Serializable {
+
+
 
     @Id
     private int id;
